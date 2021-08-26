@@ -1,0 +1,16 @@
+border:
+  #
+  # https://minecraft.fandom.com/wiki/World_border#Commands (center)
+  #
+  center:
+    x: 0.0
+    z: 0.0
+  #
+  # https://minecraft.fandom.com/wiki/World_border#Commands (set)
+  #
+  width: 3333
+
+#
+# Amount of blocks in each direction that will be generated
+#
+radius: 1700

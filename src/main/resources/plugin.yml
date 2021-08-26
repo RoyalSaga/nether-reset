@@ -1,0 +1,17 @@
+name: NetherReset
+main: net.royalsaga.minecraft.netherreset.NetherReset
+version: ${version}
+description: Reset the nether world by generating the chunks using ChunkMaster and setting a world border
+
+depend:
+  - Chunkmaster
+
+api-version: 1.13
+author: RoyalSaga
+website: https://royalsaga.net
+
+commands:
+  netherreset: {}
+
+permissions:
+  netherreset.admin: {}
