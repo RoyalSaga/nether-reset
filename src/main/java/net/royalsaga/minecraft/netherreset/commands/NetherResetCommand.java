@@ -2,6 +2,7 @@ package net.royalsaga.minecraft.netherreset.commands;
 
 import net.royalsaga.minecraft.netherreset.NetherReset;
 import org.bukkit.Bukkit;
+import org.bukkit.GameRule;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -42,6 +43,7 @@ public class NetherResetCommand implements CommandExecutor, TabCompleter {
             return true;
         }
 
+        nether.setGameRule(GameRule.ANNOUNCE_ADVANCEMENTS, false);
         nether.getWorldBorder().setCenter(plugin.getBorderCenterX(), plugin.getBorderCenterZ());
         nether.getWorldBorder().setSize(plugin.getBorderWidth());
         Bukkit.dispatchCommand(
