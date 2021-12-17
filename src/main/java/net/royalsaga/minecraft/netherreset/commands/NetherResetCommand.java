@@ -2,7 +2,6 @@ package net.royalsaga.minecraft.netherreset.commands;
 
 import net.royalsaga.minecraft.netherreset.NetherReset;
 import org.bukkit.Bukkit;
-import org.bukkit.GameRule;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -43,17 +42,15 @@ public class NetherResetCommand implements CommandExecutor, TabCompleter {
             return true;
         }
 
-        nether.setGameRule(GameRule.ANNOUNCE_ADVANCEMENTS, false);
         nether.getWorldBorder().setCenter(plugin.getBorderCenterX(), plugin.getBorderCenterZ());
         nether.getWorldBorder().setSize(plugin.getBorderWidth());
-        Bukkit.dispatchCommand(
-                Bukkit.getConsoleSender(),
-                "chunkmaster setCenter world_nether %d %d".formatted((int) plugin.getBorderCenterX(), (int) plugin.getBorderCenterZ())
-        );
-        Bukkit.dispatchCommand(
-                Bukkit.getConsoleSender(),
-                "chunkmaster generate world_nether %d".formatted(plugin.getRadius())
-        );
+
+        for (final var it : plugin.getCommands()) {
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), it);
+        }
+
+        plugin.getBooleanGameRules().forEach(nether::setGameRule);
+        plugin.getIntegerGameRules().forEach(nether::setGameRule);
         return true;
     }
 

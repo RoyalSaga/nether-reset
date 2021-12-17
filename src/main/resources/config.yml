@@ -14,3 +14,25 @@ border:
 # Amount of blocks in each direction that will be generated
 #
 radius: 1700
+
+#
+# Commands to be run when the world is reset
+# Placeholders:
+# - %center_x%          - border center x
+# - %center_x_fixed%    - border center x coordinate without decimals
+# - %center_x_centered% - border center x coordinate + .5
+# - %center_z%          - border center z
+# - %center_z_fixed%    - border center z coordinate without decimals
+# - %center_z_centered% - border center z coordinate + .5
+# - %radius%            - radius
+#
+commands:
+  - chunkmaster setCenter world_nether %center_x_fixed% %center_z_fixed%
+  - chunkmaster generate world_nether %radius%
+
+#
+# List of game rules to set. Currently, supporting only Bool and Int rules
+# https://minecraft.fandom.com/wiki/Game_rule#List_of_game_rules
+#
+gameRules:
+  - announceAdvancements false
